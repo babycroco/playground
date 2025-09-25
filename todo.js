@@ -1,0 +1,8 @@
+let todos = ["Buy milk", "Learn VS Code", "Push to GitHub"];
+
+console.log("My todos:", todos);
+
+// Mark first todo as done
+todos[0] = "[x] " + todos[0];
+
+console.log("Updated todos:", todos);
