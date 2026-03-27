@@ -49,13 +49,13 @@ def test_normalization():
     unit_cases = [
         ("WE 15 c",           "15"),
         ("WE28 (n)",           "28"),
-        ("WE-06",              "06"),
+        ("WE-06",              "6"),
         ("15",                 "15"),
         ("Whg. 7",             "7"),
         ("Wohnung 12",         "12"),
         ("WE 15 - Furnished",  "15"),
-        ("WE09 - Furnished",   "09"),
-        ("WE 03 (a)",          "03"),
+        ("WE09 - Furnished",   "9"),
+        ("WE 03 (a)",          "3"),
         ("WE22",               "22"),
     ]
 

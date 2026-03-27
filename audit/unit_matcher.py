@@ -169,7 +169,7 @@ def normalize_unit(raw_unit: str) -> str:
     Examples:
       "WE 15 c"         → "15"
       "WE28 (n)"        → "28"
-      "WE-06"           → "06"
+      "WE-06"           → "6"
       "15"              → "15"
       "Whg. 7"          → "7"
       "Wohnung 12"      → "12"
@@ -188,15 +188,16 @@ def normalize_unit(raw_unit: str) -> str:
         flags=re.IGNORECASE,
     ).strip()
 
-    # 2. Extract just the leading numeric portion (possibly zero-padded)
-    #    "15 c" → "15", "06" → "06", "28 (n)" → "28"
+    # 2. Extract just the leading numeric portion, stripping leading zeros
+    #    so zero-padded variants ("06") and plain ("6") produce the same key.
+    #    "15 c" → "15", "06" → "6", "28 (n)" → "28"
     m = re.match(r"^(\d+)", s)
     if m:
-        return m.group(1)
+        return str(int(m.group(1)))
 
     # 3. Fallback: strip all non-digit chars and return
     digits = re.sub(r"\D", "", s)
-    return digits
+    return str(int(digits)) if digits else ""
 
 
 def make_canonical_key(street: str, unit: str) -> str:
