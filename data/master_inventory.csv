@@ -1,0 +1,16 @@
+unit_id,street,unit,canonical_key,owner,self_payer
+WE15-RESID129,Residenzstr. 129,15,RESIDENZSTR_129_WE15,Rosenfeld Alfred,false
+WE28-BORN80,Bornholmerstr. 80,28,BORNHOLMERSTR_80_WE28,Shavit Assaf,false
+WE06-RESID129,Residenzstr. 129,6,RESIDENZSTR_129_WE6,Müller Hans,false
+WE03-BORN80,Bornholmerstr. 80,3,BORNHOLMERSTR_80_WE3,Schmidt Eva,true
+WE12-BORN80,Bornholmerstr. 80,12,BORNHOLMERSTR_80_WE12,Fischer Klaus,false
+WE07-RESID129,Residenzstr. 129,7,RESIDENZSTR_129_WE7,Bauer Maria,false
+WE22-BORN80,Bornholmerstr. 80,22,BORNHOLMERSTR_80_WE22,Wagner Thomas,false
+WE04-BORN80,Bornholmerstr. 80,4,BORNHOLMERSTR_80_WE4,Hoffmann Petra,false
+WE09-RESID129,Residenzstr. 129,9,RESIDENZSTR_129_WE9,Schneider Anna,true
+WE31-BORN80,Bornholmerstr. 80,31,BORNHOLMERSTR_80_WE31,Koch Dieter,false
+WE11-RESID129,Residenzstr. 129,11,RESIDENZSTR_129_WE11,Richter Sabine,false
+WE17-BORN80,Bornholmerstr. 80,17,BORNHOLMERSTR_80_WE17,Klein Werner,false
+WE02-RESID129,Residenzstr. 129,2,RESIDENZSTR_129_WE2,Wolf Ingrid,false
+WE19-BORN80,Bornholmerstr. 80,19,BORNHOLMERSTR_80_WE19,Schäfer Georg,false
+WE08-RESID129,Residenzstr. 129,8,RESIDENZSTR_129_WE8,Becker Helga,false
