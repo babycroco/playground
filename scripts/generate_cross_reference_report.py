@@ -18,6 +18,7 @@ Run with:
     python3 -m scripts.generate_cross_reference_report
 """
 
+import os
 import sys
 import re
 import pandas as pd
@@ -398,6 +399,27 @@ def main() -> int:
 
     # Step 8: write Excel
     write_excel(joined, OUTPUT_PATH)
+
+    # Step 10: missing WP hint (read raw audit_report.csv which carries status/file_year)
+    _raw_audit_path = os.path.join(BASE_DIR, "data", "audit_report.csv")
+    audit_raw = pd.read_csv(_raw_audit_path, dtype=str)
+    if "status" in audit_raw.columns:
+        n_missing = audit_raw["status"].str.strip().isin(
+            ["No WP Found", "Download Failed"]
+        ).sum()
+        import datetime as _dt
+        current_year = _dt.date.today().year
+        if "file_year" in audit_raw.columns:
+            stale = (
+                current_year - pd.to_numeric(audit_raw["file_year"], errors="coerce")
+            ) > 1
+            n_missing += int(stale.sum())
+        if n_missing > 0:
+            print(
+                f"  {n_missing} unit(s) missing WP. "
+                f"Run 'python3 -m scripts.request_missing_docs --preview' "
+                f"to draft request emails."
+            )
 
     return 0
 

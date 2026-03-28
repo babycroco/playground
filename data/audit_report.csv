@@ -1,16 +1,16 @@
-unit_path,street,unit,wp_hausgeld,wp_ruecklage,wp_total
-Residenzstr. 129/WE15,Residenzstr. 129,WE15,245.50,89.00,334.50
-Bornholmerstr. 80/WE 28,Bornholmerstr. 80,WE 28,312.00,104.00,416.00
-Residenzstr. 129/WE06,Residenzstr. 129,WE06,198.00,72.00,270.00
-Bornholmerstr. 80/WE 03,Bornholmerstr. 80,WE 03,275.00,95.00,370.00
-Bornholmerstr. 80/WE 12,Bornholmerstr. 80,WE 12,289.00,98.00,387.00
-Residenzstr. 129/WE07,Residenzstr. 129,WE07,220.00,80.00,300.00
-Bornholmerstr. 80/WE 22,Bornholmerstr. 80,WE 22,301.00,102.00,403.00
-Bornholmerstr. 80/WE 04,Bornholmerstr. 80,WE 04,260.00,90.00,350.00
-Residenzstr. 129/WE09,Residenzstr. 129,WE09,235.00,85.00,320.00
-Bornholmerstr. 80/WE 31,Bornholmerstr. 80,WE 31,330.00,110.00,440.00
-Residenzstr. 129/WE11,Residenzstr. 129,WE11,215.00,78.00,293.00
-Bornholmerstr. 80/WE 17,Bornholmerstr. 80,WE 17,295.00,100.00,395.00
-Residenzstr. 129/WE02,Residenzstr. 129,WE02,185.00,68.00,253.00
-Bornholmerstr. 80/WE 19,Bornholmerstr. 80,WE 19,308.00,105.00,413.00
-Residenzstr. 129/WE08,Residenzstr. 129,WE08,228.00,82.00,310.00
+unit_path,street,unit,wp_hausgeld,wp_ruecklage,wp_total,status,file_year
+Residenzstr. 129/WE15,Residenzstr. 129,WE15,245.50,89.00,334.50,WP Found,2025
+Bornholmerstr. 80/WE 28,Bornholmerstr. 80,WE 28,312.00,104.00,416.00,WP Found,2025
+Residenzstr. 129/WE06,Residenzstr. 129,WE06,198.00,72.00,270.00,No WP Found,
+Bornholmerstr. 80/WE 03,Bornholmerstr. 80,WE 03,275.00,95.00,370.00,WP Found,2024
+Bornholmerstr. 80/WE 12,Bornholmerstr. 80,WE 12,289.00,98.00,387.00,No WP Found,
+Residenzstr. 129/WE07,Residenzstr. 129,WE07,220.00,80.00,300.00,WP Found,2023
+Bornholmerstr. 80/WE 22,Bornholmerstr. 80,WE 22,301.00,102.00,403.00,WP Found,2025
+Bornholmerstr. 80/WE 04,Bornholmerstr. 80,WE 04,260.00,90.00,350.00,Download Failed,
+Residenzstr. 129/WE09,Residenzstr. 129,WE09,235.00,85.00,320.00,WP Found,2025
+Bornholmerstr. 80/WE 31,Bornholmerstr. 80,WE 31,330.00,110.00,440.00,WP Found,2023
+Residenzstr. 129/WE11,Residenzstr. 129,WE11,215.00,78.00,293.00,WP Found,2025
+Bornholmerstr. 80/WE 17,Bornholmerstr. 80,WE 17,295.00,100.00,395.00,No WP Found,
+Residenzstr. 129/WE02,Residenzstr. 129,WE02,185.00,68.00,253.00,WP Found,2025
+Bornholmerstr. 80/WE 19,Bornholmerstr. 80,WE 19,308.00,105.00,413.00,WP Found,2025
+Residenzstr. 129/WE08,Residenzstr. 129,WE08,228.00,82.00,310.00,WP Found,2025
