@@ -1,16 +1,25 @@
-unit_path,street,unit,wp_hausgeld,wp_ruecklage,wp_total,status,file_year
-Residenzstr. 129/WE15,Residenzstr. 129,WE15,245.50,89.00,334.50,WP Found,2025
-Bornholmerstr. 80/WE 28,Bornholmerstr. 80,WE 28,312.00,104.00,416.00,WP Found,2025
-Residenzstr. 129/WE06,Residenzstr. 129,WE06,198.00,72.00,270.00,No WP Found,
-Bornholmerstr. 80/WE 03,Bornholmerstr. 80,WE 03,275.00,95.00,370.00,WP Found,2024
-Bornholmerstr. 80/WE 12,Bornholmerstr. 80,WE 12,289.00,98.00,387.00,No WP Found,
-Residenzstr. 129/WE07,Residenzstr. 129,WE07,220.00,80.00,300.00,WP Found,2023
-Bornholmerstr. 80/WE 22,Bornholmerstr. 80,WE 22,301.00,102.00,403.00,WP Found,2025
-Bornholmerstr. 80/WE 04,Bornholmerstr. 80,WE 04,260.00,90.00,350.00,Download Failed,
-Residenzstr. 129/WE09,Residenzstr. 129,WE09,235.00,85.00,320.00,WP Found,2025
-Bornholmerstr. 80/WE 31,Bornholmerstr. 80,WE 31,330.00,110.00,440.00,WP Found,2023
-Residenzstr. 129/WE11,Residenzstr. 129,WE11,215.00,78.00,293.00,WP Found,2025
-Bornholmerstr. 80/WE 17,Bornholmerstr. 80,WE 17,295.00,100.00,395.00,No WP Found,
-Residenzstr. 129/WE02,Residenzstr. 129,WE02,185.00,68.00,253.00,WP Found,2025
-Bornholmerstr. 80/WE 19,Bornholmerstr. 80,WE 19,308.00,105.00,413.00,WP Found,2025
-Residenzstr. 129/WE08,Residenzstr. 129,WE08,228.00,82.00,310.00,WP Found,2025
+canonical_key,street,unit_number,status,wp_hausgeld,wp_ruecklage,wp_total,file_year,extraction_method
+RESIDENZSTR_129_WE15,Residenzstr. 129,15,Dry Run,334.5,,334.5,2026,dry_run_mock
+RESIDENZSTR_129_WE6,Residenzstr. 129,6,Dry Run,270.0,,270.0,2025,dry_run_mock
+RESIDENZSTR_129_WE7,Residenzstr. 129,7,Dry Run,300.0,,300.0,2026,dry_run_mock
+RESIDENZSTR_129_WE9,Residenzstr. 129,9,Dry Run,320.0,,320.0,2026,dry_run_mock
+RESIDENZSTR_129_WE11,Residenzstr. 129,11,Dry Run,293.0,,293.0,2026,dry_run_mock
+RESIDENZSTR_129_WE2,Residenzstr. 129,2,Dry Run,253.0,,253.0,2026,dry_run_mock
+RESIDENZSTR_129_WE8,Residenzstr. 129,8,Dry Run,310.0,,310.0,2026,dry_run_mock
+BORNHOLMERSTR_80_WE28,Bornholmerstr. 80,28,Dry Run,416.0,,416.0,2026,dry_run_mock
+BORNHOLMERSTR_80_WE3,Bornholmerstr. 80,3,Skipped - Direct Payer,,,,,
+BORNHOLMERSTR_80_WE12,Bornholmerstr. 80,12,Dry Run,387.0,,387.0,2025,dry_run_mock
+BORNHOLMERSTR_80_WE22,Bornholmerstr. 80,22,Dry Run,403.0,,403.0,2026,dry_run_mock
+BORNHOLMERSTR_80_WE4,Bornholmerstr. 80,4,Dry Run,350.0,,350.0,2025,dry_run_mock
+BORNHOLMERSTR_80_WE17,Bornholmerstr. 80,17,Dry Run,395.0,,395.0,2025,dry_run_mock
+BORNHOLMERSTR_80_WE31,Bornholmerstr. 80,31,Dry Run,440.0,,440.0,2026,dry_run_mock
+BORNHOLMERSTR_80_WE19,Bornholmerstr. 80,19,Dry Run,413.0,,413.0,2026,dry_run_mock
+WUERZBURGERSTR8_WE29,Wuerzburgerstr.8,29,Dry Run,210.8,,210.8,2026,dry_run_mock
+RESIDENZSTR_128_WE12,Residenz str. 128,12,Dry Run,295.0,,295.0,2026,dry_run_mock
+SONNENALLE_147_WE3,SONNENALLE 147,3,Dry Run,510.0,,510.0,2024,dry_run_mock
+WESERSTR_59_WE19,Weserstr. 59,19,Dry Run,355.0,,355.0,2026,dry_run_mock
+WUNDSTRS16_WE5,wundstrs.16,5,Skipped - Direct Payer,,,,,
+QUITZOWSTR_130_WE8,Quitzowstr. 130,8,Dry Run,195.0,,195.0,2025,dry_run_mock
+QUITZOWSTR_130_WE12,Quitzowstr. 130,12,Dry Run,205.0,,205.0,2026,dry_run_mock
+KASTANIENALLEE_25_WE4,Kastanienallee 25,4,Dry Run,425.0,,425.0,2025,dry_run_mock
+KASTANIENALLEE_25_WE7,Kastanienallee 25,7,Dry Run,400.0,,400.0,2026,dry_run_mock

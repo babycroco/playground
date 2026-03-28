@@ -1,0 +1,25 @@
+owner,raw_property_name,street,unit_number,canonical_key,hg_2024,hg_2025,hg_2026,latest_hg,latest_hg_year,is_direct_payer,needs_wp_update
+Alfred Rosenfeld,Residenzstr. 129 WE15,Residenzstr. 129,15,RESIDENZSTR_129_WE15,320.0,334.5,334.5,334.5,2026,False,False
+Hans Müller,Residenzstr. 129 WE06,Residenzstr. 129,6,RESIDENZSTR_129_WE6,260.0,270.0,,270.0,2025,False,True
+Bauer Maria,Residenzstr. 129 WE07,Residenzstr. 129,7,RESIDENZSTR_129_WE7,295.0,300.0,300.0,300.0,2026,False,False
+Schneider Anna,Residenzstr. 129 WE09,Residenzstr. 129,9,RESIDENZSTR_129_WE9,310.0,320.0,320.0,320.0,2026,False,False
+Richter Sabine,Residenzstr. 129 WE11,Residenzstr. 129,11,RESIDENZSTR_129_WE11,285.0,293.0,293.0,293.0,2026,False,False
+Wolf Ingrid,Residenzstr. 129 WE02,Residenzstr. 129,2,RESIDENZSTR_129_WE2,245.0,253.0,253.0,253.0,2026,False,False
+Becker Helga,Residenzstr. 129 WE08,Residenzstr. 129,8,RESIDENZSTR_129_WE8,300.0,310.0,310.0,310.0,2026,False,False
+Shavit Assaf,Bornholmerstr. 80 WE28,Bornholmerstr. 80,28,BORNHOLMERSTR_80_WE28,400.0,416.0,416.0,416.0,2026,False,False
+Schmidt Eva,Bornholmerstr. 80 WE03,Bornholmerstr. 80,3,BORNHOLMERSTR_80_WE3,355.0,370.0,,370.0,2025,True,True
+Fischer Klaus,Bornholmerstr. 80 WE12,Bornholmerstr. 80,12,BORNHOLMERSTR_80_WE12,375.0,387.0,,387.0,2025,False,True
+Wagner Thomas,Bornholmerstr. 80 WE22,Bornholmerstr. 80,22,BORNHOLMERSTR_80_WE22,390.0,403.0,403.0,403.0,2026,False,False
+Hoffmann Petra,Bornholmerstr. 80 WE04,Bornholmerstr. 80,4,BORNHOLMERSTR_80_WE4,340.0,350.0,,350.0,2025,False,True
+Klein Werner,Bornholmerstr. 80 WE17,Bornholmerstr. 80,17,BORNHOLMERSTR_80_WE17,380.0,395.0,,395.0,2025,False,True
+Koch Dieter,Bornholmerstr. 80 WE31,Bornholmerstr. 80,31,BORNHOLMERSTR_80_WE31,425.0,440.0,440.0,440.0,2026,False,False
+Schäfer Georg,Bornholmerstr. 80 WE19,Bornholmerstr. 80,19,BORNHOLMERSTR_80_WE19,398.0,413.0,413.0,413.0,2026,False,False
+Avraham Josef,Wuerzburgerstr.8 WE29,Wuerzburgerstr.8,29,WUERZBURGERSTR8_WE29,195.0,210.0,210.8,210.8,2026,False,False
+Levi Sarah,Residenz str. 128 WE12,Residenz str. 128,12,RESIDENZSTR_128_WE12,280.0,295.0,295.0,295.0,2026,False,False
+Ben-David Roni,SONNENALLE 147 WE3,SONNENALLE 147,3,SONNENALLE_147_WE3,510.0,,,510.0,2024,False,True
+Montag Tanja,Weserstr. 59 WE19/ Wildenbruch 6 / WE 19,Weserstr. 59,19,WESERSTR_59_WE19,340.0,355.0,355.0,355.0,2026,False,False
+Goldstein Marc,wundstrs.16 WE5,wundstrs.16,5,WUNDSTRS16_WE5,220.0,230.0,,230.0,2025,True,True
+Katz Miriam,Quitzowstr. 130 WE08,Quitzowstr. 130,8,QUITZOWSTR_130_WE8,185.0,195.0,,195.0,2025,False,True
+Shapiro Dan,Quitzowstr. 130 WE12,Quitzowstr. 130,12,QUITZOWSTR_130_WE12,195.0,205.0,205.0,205.0,2026,False,False
+Levy Noa,Kastanienallee 25 WE4,Kastanienallee 25,4,KASTANIENALLEE_25_WE4,410.0,425.0,,425.0,2025,False,True
+Cohen David,Kastanienallee 25 WE7,Kastanienallee 25,7,KASTANIENALLEE_25_WE7,385.0,400.0,400.0,400.0,2026,False,False

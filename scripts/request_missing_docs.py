@@ -35,11 +35,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-BASE_DIR       = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-AUDIT_PATH     = os.path.join(BASE_DIR, "data", "audit_report.csv")
-INVENTORY_PATH = os.path.join(BASE_DIR, "data", "master_inventory.csv")
-HV_PATH        = os.path.join(BASE_DIR, "data", "Hausverwaltung_Contact_Info.csv")
-LOG_PATH       = os.path.join(BASE_DIR, "data", "document_request_log.csv")
+BASE_DIR        = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PORTFOLIO_PATH  = os.path.join(BASE_DIR, "data", "managed_portfolio.csv")
+AUDIT_PATH      = os.path.join(BASE_DIR, "data", "audit_report.csv")      # fallback only
+HV_PATH         = os.path.join(BASE_DIR, "data", "Hausverwaltung_Contact_Info.csv")
+LOG_PATH        = os.path.join(BASE_DIR, "data", "document_request_log.csv")
 
 sys.path.insert(0, BASE_DIR)
 from audit.unit_matcher import normalize_street
@@ -95,16 +95,24 @@ _SUBJECT_TEMPLATE = (
 # Data loading
 # ---------------------------------------------------------------------------
 
-def _load_audit() -> pd.DataFrame:
+def _load_portfolio() -> pd.DataFrame:
+    """
+    Load managed_portfolio.csv as the primary source of truth (243 managed units).
+    Falls back to audit_report.csv + master_inventory.csv if portfolio not yet built.
+    """
+    if os.path.exists(PORTFOLIO_PATH):
+        df = pd.read_csv(PORTFOLIO_PATH, dtype=str)
+        df.columns = [c.strip().lower().replace(" ", "_") for c in df.columns]
+        return df
+    # Fallback: synthesize a compatible DataFrame from audit_report.csv
     df = pd.read_csv(AUDIT_PATH, dtype=str)
-    # Normalise column names to lowercase
     df.columns = [c.strip().lower().replace(" ", "_") for c in df.columns]
-    return df
-
-
-def _load_inventory() -> pd.DataFrame:
-    df = pd.read_csv(INVENTORY_PATH, dtype=str)
-    df.columns = [c.strip().lower().replace(" ", "_") for c in df.columns]
+    df["is_direct_payer"] = "False"
+    df["needs_wp_update"] = df["status"].str.strip().isin(
+        ["No WP Found", "Download Failed"]
+    ).astype(str)
+    df["owner"] = ""
+    df["unit_number"] = df["unit"]
     return df
 
 
@@ -197,34 +205,32 @@ def _append_request_log(entries: list[dict]) -> None:
 # ---------------------------------------------------------------------------
 
 def find_missing_units(
-    audit_df: pd.DataFrame,
+    portfolio_df: pd.DataFrame,
     current_year: int,
     doc_type: str,
 ) -> pd.DataFrame:
     """
-    Return rows from audit_df that need a document request.
+    Return rows from managed_portfolio.csv that need a document request.
 
     For wirtschaftsplan:
-      - status in ("No WP Found", "Download Failed")
-      - OR file_year is present but more than 1 year behind current_year
+      - needs_wp_update == "True"  (no 2026 Hausgeld value yet)
+      - exclude direct payers (is_direct_payer == "True")
 
-    For other doc types, return all units (the caller controls scope via
-    --building or other filters; detection logic is WP-specific).
+    For other doc types: return all non-direct-payer managed units.
     """
+    # Always exclude direct payers
+    not_direct = portfolio_df.get("is_direct_payer", pd.Series("False", index=portfolio_df.index))
+    mask_active = not_direct.str.strip().str.lower() != "true"
+
     if doc_type != "wirtschaftsplan":
-        # For non-WP types all units are potentially eligible; return all
-        return audit_df.copy()
+        return portfolio_df[mask_active].copy()
 
-    missing_status = audit_df["status"].str.strip().isin(
-        ["No WP Found", "Download Failed"]
+    needs_update = portfolio_df.get(
+        "needs_wp_update", pd.Series("False", index=portfolio_df.index)
     )
+    mask_missing = needs_update.str.strip().str.lower() == "true"
 
-    stale_year = pd.Series(False, index=audit_df.index)
-    if "file_year" in audit_df.columns:
-        numeric_year = pd.to_numeric(audit_df["file_year"], errors="coerce")
-        stale_year = (current_year - numeric_year) > 1
-
-    return audit_df[missing_status | stale_year].copy()
+    return portfolio_df[mask_active & mask_missing].copy()
 
 
 # ---------------------------------------------------------------------------
@@ -345,18 +351,11 @@ def run(
     send_mode: bool,
     building_filter: str | None,
 ) -> None:
-    audit_df   = _load_audit()
-    inventory  = _load_inventory()
-    hv_map     = _load_hv_contacts()
-    log_df     = _load_request_log()
+    portfolio_df = _load_portfolio()
+    hv_map       = _load_hv_contacts()
+    log_df       = _load_request_log()
 
-    # Owner lookup: canonical_key → owner name
-    owner_map: dict[str, str] = {}
-    if "canonical_key" in inventory.columns and "owner" in inventory.columns:
-        for _, row in inventory.iterrows():
-            owner_map[str(row["canonical_key"])] = str(row.get("owner", ""))
-
-    missing_df = find_missing_units(audit_df, year, doc_type)
+    missing_df = find_missing_units(portfolio_df, year, doc_type)
 
     if missing_df.empty:
         print(f"No units require a {_DOC_LABELS.get(doc_type, doc_type)} request for {year}.")
@@ -400,17 +399,13 @@ def run(
         # Representative address (first row's street)
         building_address = group["street"].iloc[0]
 
-        # Build unit list with owner names
+        # Build unit list with owner names (owner comes directly from portfolio)
         units = []
         for _, row in group.iterrows():
-            raw_unit   = str(row.get("unit", "")).strip().lstrip("WEwe").strip()
-            unit_disp  = raw_unit or str(row.get("unit", ""))
-            from audit.unit_matcher import make_canonical_key
-            ckey       = make_canonical_key(str(row.get("street", "")),
-                                            str(row.get("unit", "")))
-            owner      = owner_map.get(ckey, "")
-            units.append({"unit_display": unit_disp, "unit": str(row.get("unit", "")),
-                          "owner": owner})
+            unit_col   = "unit_number" if "unit_number" in row.index else "unit"
+            raw_unit   = str(row.get(unit_col, "")).strip()
+            owner      = str(row.get("owner", "")).strip()
+            units.append({"unit_display": raw_unit, "unit": raw_unit, "owner": owner})
 
         draft = build_email_draft(building_address, units, hv_info, doc_type, year)
         drafts.append(draft)

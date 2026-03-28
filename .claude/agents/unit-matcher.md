@@ -31,6 +31,20 @@ The same apartment appears differently across data sources:
 3. **Portfolio January 2024** — Clean address column + numeric unit column
 4. **Dropbox folder paths** — `/Apartments/Berlin/{Street}/{WE xx}/`
 
+## Primary data source
+
+**`data/managed_portfolio.csv`** is the master reference (243 managed units, built from
+`data/Rental_Payments-NEW.xlsx` Managers sheet via `scripts/build_managed_portfolio.py`).
+Use this instead of `data/master_inventory.csv` for all pipeline work.
+
+Data flow:
+```
+Rental_Payments-NEW.xlsx (Managers sheet)
+  → build_managed_portfolio.py
+  → managed_portfolio.csv (canonical_key, owner, hg_2024/2025/2026, flags)
+  → all downstream scripts
+```
+
 ## Key Module
 
 Import and use `audit/unit_matcher.py` for all normalization. Core functions:
