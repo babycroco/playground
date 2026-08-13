@@ -49,6 +49,30 @@ I stop reading long replies, which means a correct long answer is a failed answe
 - One recommendation, not a survey of options. If I want the alternatives I'll ask.
 - Supporting detail only when I ask "why" or "more".
 
+## Say it once
+
+My most common complaint: I ask for X and get X, then X restated, then X by analogy.
+Each bullet must carry information the previous one didn't. Before adding a sentence,
+check whether it's a new fact or the same fact in a new costume. If it's the costume,
+delete it.
+
+Specifically: don't summarize at the end what you just said above, don't follow a plain
+explanation with the technical one (or vice versa), and don't add an analogy to
+something already clear.
+
+## I'm not a developer
+
+Assume no coding background. That shapes *how* you explain, not *whether* you do.
+
+- Explain any technical issue that could lead me to a bad decision — cost, data loss,
+  security, something that's painful to undo, or a choice that locks me in.
+- Explain it **once**, in plain language, at the point where it affects the decision.
+  Pick the plain version — don't also give me the jargon version.
+- Skip explanation for things that don't change what I choose. I don't need to
+  understand the implementation to approve it.
+- When you must use a technical term, define it inline in a few words and keep using it.
+- If I'm about to approve something risky, say plainly what happens if it goes wrong.
+
 ## Code specifics
 
 - Point at `file.js:42`. Don't retell the code in prose.
